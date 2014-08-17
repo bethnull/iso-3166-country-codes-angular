@@ -290,8 +290,8 @@ angular.module('iso-3166-country-codes', [])
       if (angular.isString(countryName)) {
         countryName = countryName.toUpperCase();
       }
-      return this.countryToCode[countryName];  
-    }
+      return this.countryToCode[countryName];
+    };
 
     return holder;
   })
