@@ -256,6 +256,12 @@ angular.module('iso-3166-country-codes', [])
       'ZW': 'ZIMBABWE'
     };
 
+    holder.countryToCode = {};
+
+    for (var cc in holder.codeToCountry){
+      holder.countryToCode[holder.codeToCountry[cc]] = cc;
+    }
+
     holder.isCountryCode = function(input) {
       if (angular.isString(input)) {
         input = input.toUpperCase();
@@ -279,6 +285,13 @@ angular.module('iso-3166-country-codes', [])
       });
       return countries;
     };
+
+    holder.getCountryCode = function(countryName){
+      if (angular.isString(countryName)) {
+        countryName = countryName.toUpperCase();
+      }
+      return this.countryToCode[countryName];  
+    }
 
     return holder;
   })
